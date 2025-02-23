@@ -2,10 +2,11 @@ import * as React from "react";
 
 export default function Main(): React.JSX.Element {
   return (
-    <main>
-      <div>
-        <label>
+    <main className="flex-direction-column justify-items-center p-8 bg-slate-100 ">
+      <div className="flex justify-center items-center gap-6">
+        <label className="text-gray-800">
           Top Text
+          <br />
           <input
             type="text"
             className="border border-gray-300 rounded-md p-2"
@@ -13,17 +14,22 @@ export default function Main(): React.JSX.Element {
           />
         </label>
 
-        <label>
+        <label className="text-gray-800">
           Bottom Text
+          <br />
           <input
             type="text"
             className="border border-gray-300 rounded-md p-2"
             placeholder="Enter bottom text"
           />
         </label>
-        <button>Get a new meme image</button>
       </div>
-      <div className="meme">
+
+      <button className="w-[450px] h-[50px] mt-4 bg-gradient-to-r from-pink-400 to-red-500 border-gray-200 rounded-lg">
+        Get a new meme image
+      </button>
+
+      <div className="mr-5 ml-5 mt-4">
         <img src="http://i.imgflip.com/1bij.jpg" alt="image" />
         <span className="top">One does not simply</span>
         <span className="bottom">Walk into Mordor</span>
