@@ -2,7 +2,7 @@ import * as React from "react";
 
 export default function Main(): React.JSX.Element {
   return (
-    <main className="flex-direction-column justify-items-center p-8 bg-slate-100 ">
+    <main className="flex-direction-column justify-items-center p-8 bg-gray-800 ">
       <div className="flex justify-center items-center gap-6">
         <label className="text-gray-800">
           Top Text
@@ -30,7 +30,11 @@ export default function Main(): React.JSX.Element {
       </button>
 
       <div className="mr-5 ml-5 mt-4">
-        <img src="http://i.imgflip.com/1bij.jpg" alt="image" />
+        <img
+          src="http://i.imgflip.com/1bij.jpg"
+          alt="image"
+          className="rounded-lg"
+        />
         <span className="top">One does not simply</span>
         <span className="bottom">Walk into Mordor</span>
       </div>
