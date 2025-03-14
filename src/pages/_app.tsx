@@ -1,13 +1,15 @@
 import "@/styles/globals.css";
 import Header from "@/components/Header";
-import Main from "@/components/Main";
+import Inputs from "@/components/Inputs";
+import ImageGenerator from "@/components/ImageGenerator";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className="h-screen bg-gray-800">
       <Header />
-      <Main />
-    </>
+      <Inputs />
+      <ImageGenerator />
+    </div>
   );
 }
