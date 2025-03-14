@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <div className="relative flex items-center w-full h-[60px] bg-gradient-to-r from-purple-500 to-pink-400 px-4">
+    <div className="relative flex items-center w-full h-[60px] px-4 mb-6 bg-gradient-to-r from-purple-500 to-pink-400">
       <img
         className="ml-1 w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] mr-3"
         src="./ghostface.png"
