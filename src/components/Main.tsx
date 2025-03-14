@@ -25,7 +25,7 @@ export default function Main(): React.JSX.Element {
         </label>
       </div>
 
-      <button className="w-[450px] h-[50px] mt-4 bg-gradient-to-r from-pink-400 to-red-500 border-gray-200 rounded-lg">
+      <button className="w-[450px] h-[50px] mt-4 bg-gradient-to-r from-purple-500 to-pink-400 border-gray-200 rounded-lg">
         Get a new meme image
       </button>
 
