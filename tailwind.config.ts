@@ -10,6 +10,7 @@ export default {
     extend: {
       fontFamily: {
         anton: ['Anton', 'sans-serif'],
+        phudu: ['Phudu', 'sans-serif'],
       },
       colors: {
         background: "var(--background)",
