@@ -6,13 +6,15 @@ interface Meme {
   imageUrl: string;
 }
 
-export default function Inputs(): React.JSX.Element {
-  const [meme, setMeme] = useState<Meme>({
-    topText: "One does not simply",
-    bottomText: "Walk into Mordor",
-    imageUrl: "http://i.imgflip.com/1bij.jpg",
-  });
+interface InputsProps {
+  meme: Meme;
+  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
+export default function Inputs({
+  meme,
+  handleInputChange,
+}: InputsProps): React.JSX.Element {
   return (
     <main className="flex flex-col p-6 mx-auto">
       <div className="flex justify-center items-center gap-6">
@@ -22,6 +24,7 @@ export default function Inputs(): React.JSX.Element {
             type="text"
             className="w-full border border-gray-400 rounded-md p-2"
             placeholder="Enter top text"
+            onChange={handleInputChange}
           />
         </label>
 

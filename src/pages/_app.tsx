@@ -2,18 +2,44 @@ import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Inputs from "@/components/Inputs";
 import ImageGenerator from "@/components/ImageGenerator";
-import type { AppProps } from "next/app";
+import { useState } from "react";
 
-export default function App({ Component, pageProps }: AppProps) {
+type Meme = {
+  topText: string;
+  bottomText: string;
+  imageUrl: string;
+};
+
+export default function App() {
+  const [meme, setMeme] = useState<Meme>({
+    topText: "One does not simply",
+    bottomText: "Walk into Mordor",
+    imageUrl: "http://i.imgflip.com/1bij.jpg",
+  });
+
+  // Add event listener to input fields
+  // Create a function to handle input changes and update the state accordingly
+  // Pass values to the ImageGenerator component as props
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = event.target;
+    setMeme((prevMeme) => {
+      return {
+        ...prevMeme,
+        topText: value,
+      };
+    });
+  }
+
   return (
     <>
       <div className="h-screen">
         <Header />
-        <Inputs />
+        <Inputs meme={meme} handleInputChange={handleInputChange} />
         <ImageGenerator
-          topText="One does not simply"
-          bottomText="Walk into Mordor"
-          imageUrl="http://i.imgflip.com/1bij.jpg"
+          topText={meme.topText}
+          bottomText={meme.bottomText}
+          imageUrl={meme.imageUrl}
         />
       </div>
     </>

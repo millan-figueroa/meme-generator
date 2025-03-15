@@ -11,7 +11,7 @@ export default function ImageGenerator({
   bottomText,
   imageUrl,
 }: ImageGeneratorProps) {
-  const [randomImage, setRandomImage] = React.useState<string>("");
+  //   const [randomImage, setRandomImage] = React.useState<string>("");
 
   return (
     <div className="flex flex-col justify-items-center px-6 mx-auto w-fit">
