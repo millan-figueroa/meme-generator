@@ -1,6 +1,16 @@
 import React from "react";
 
-export default function ImageGenerator() {
+type ImageGeneratorProps = {
+  topText: string;
+  bottomText: string;
+  imageUrl: string;
+};
+
+export default function ImageGenerator({
+  topText,
+  bottomText,
+  imageUrl,
+}: ImageGeneratorProps) {
   const [randomImage, setRandomImage] = React.useState<string>("");
 
   return (
@@ -9,16 +19,12 @@ export default function ImageGenerator() {
         Get a new image
       </button>
       <div className="relative flex flex-col justify-center items-center">
-        <img
-          src="http://i.imgflip.com/1bij.jpg"
-          alt="image"
-          className="rounded-lg"
-        />
+        <img src={imageUrl} alt="image" className="rounded-lg" />
         <span className="absolute text-center my-[15px] px-[5px] font-anton text-3xl uppercase text-white tracking-[1px] [text-shadow:_2px_2px_0_#000,_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_0_2px_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_-2px_0_0_#000,_2px_2px_5px_#000] top-0">
-          Some Text
+          {topText}
         </span>
         <span className="absolute text-center my-[15px] px-[5px] font-anton text-3xl uppercase text-white tracking-[1px] [text-shadow:_2px_2px_0_#000,_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_0_2px_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_-2px_0_0_#000,_2px_2px_5px_#000] bottom-0">
-          Some Text
+          {bottomText}
         </span>
       </div>
     </div>

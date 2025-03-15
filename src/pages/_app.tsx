@@ -23,7 +23,12 @@ export default function App({ Component, pageProps }: AppProps) {
       <div className="h-screen">
         <Header />
         <Inputs />
-        <ImageGenerator />
+        <ImageGenerator
+          topText="One does not simply"
+          bottomText="Walk into Mordor"
+          imageUrl="http://i.imgflip
+            .com/1bij.jpg"
+        />
       </div>
     </>
   );
