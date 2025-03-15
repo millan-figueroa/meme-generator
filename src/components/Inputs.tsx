@@ -26,6 +26,7 @@ export default function Inputs({
             className="w-full border border-gray-400 rounded-md p-2"
             placeholder="Enter top text"
             onChange={handleInputChange}
+            value={meme.topText}
           />
         </label>
 
@@ -37,6 +38,7 @@ export default function Inputs({
             className="w-full border border-gray-400 rounded-md p-2"
             placeholder="Enter bottom text"
             onChange={handleInputChange}
+            value={meme.bottomText}
           />
         </label>
       </div>
