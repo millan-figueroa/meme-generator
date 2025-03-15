@@ -14,9 +14,9 @@ export default function Inputs(): React.JSX.Element {
   });
 
   return (
-    <main className="flex-direction-column p-6">
+    <main className="flex flex-col p-6 mx-auto">
       <div className="flex justify-center items-center gap-6">
-        <label className="text-white">
+        <label className="text-grey-600">
           Top Text
           <input
             type="text"
@@ -25,7 +25,7 @@ export default function Inputs(): React.JSX.Element {
           />
         </label>
 
-        <label className="text-white">
+        <label className="text-grey-600">
           Bottom Text
           <input
             type="text"

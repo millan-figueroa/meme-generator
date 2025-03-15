@@ -14,8 +14,8 @@ export default function ImageGenerator({
   const [randomImage, setRandomImage] = React.useState<string>("");
 
   return (
-    <div className="flex flex-col justify-items-center mx-6">
-      <button className="w-full py-2 px-6 mb-6 text-white bg-gradient-to-r from-purple-500 to-pink-400 rounded-lg">
+    <div className="flex flex-col justify-items-center px-6 mx-auto w-fit">
+      <button className="py-2 mb-6 text-white bg-gradient-to-r from-purple-500 to-pink-400 rounded-lg">
         Get a new image
       </button>
       <div className="relative flex flex-col justify-center items-center">
