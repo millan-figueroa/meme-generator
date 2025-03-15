@@ -22,6 +22,7 @@ export default function Inputs({
           Top Text
           <input
             type="text"
+            name="topText"
             className="w-full border border-gray-400 rounded-md p-2"
             placeholder="Enter top text"
             onChange={handleInputChange}
@@ -32,8 +33,10 @@ export default function Inputs({
           Bottom Text
           <input
             type="text"
+            name="bottomText"
             className="w-full border border-gray-400 rounded-md p-2"
             placeholder="Enter bottom text"
+            onChange={handleInputChange}
           />
         </label>
       </div>

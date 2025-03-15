@@ -21,15 +21,13 @@ export default function App() {
   // Create a function to handle input changes and update the state accordingly
   // Pass values to the ImageGenerator component as props
 
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const { value } = event.target;
-    setMeme((prevMeme) => {
-      return {
-        ...prevMeme,
-        topText: value,
-      };
-    });
-  }
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setMeme((prevMeme) => ({
+      ...prevMeme,
+      [name]: value,
+    }));
+  };
 
   return (
     <>
