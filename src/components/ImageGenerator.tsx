@@ -1,21 +1,25 @@
+import { get } from "http";
 import React from "react";
 
 type ImageGeneratorProps = {
   topText: string;
   bottomText: string;
   imageUrl: string;
+  getRandomMeme: () => void;
 };
 
 export default function ImageGenerator({
   topText,
   bottomText,
   imageUrl,
+  getRandomMeme,
 }: ImageGeneratorProps) {
-  //   const [randomImage, setRandomImage] = React.useState<string>("");
-
   return (
     <div className="flex flex-col justify-items-center px-6 mx-auto w-fit">
-      <button className="py-2 mb-6 text-white bg-gradient-to-r from-purple-500 to-pink-400 rounded-lg">
+      <button
+        className="py-2 mb-6 text-white bg-gradient-to-r from-purple-500 to-pink-400 rounded-lg"
+        onClick={getRandomMeme}
+      >
         Get a new image
       </button>
       <div className="relative flex flex-col justify-center items-center">

@@ -8,6 +8,7 @@ type Meme = {
   topText: string;
   bottomText: string;
   imageUrl: string;
+  url: string;
 };
 
 export default function App() {
@@ -15,20 +16,18 @@ export default function App() {
     topText: "One does not simply",
     bottomText: "Walk into Mordor",
     imageUrl: "http://i.imgflip.com/1bij.jpg",
+    url: "",
   });
 
-  // Fetch memes from API and save to state
-  const [memes, setMemes] = useState([]);
+  // Fetch memes images from API and save to state
+  const [memes, setMemes] = useState<Meme[]>([]);
   React.useEffect(() => {
     fetch(`https://api.imgflip.com/get_memes`)
       .then((res) => res.json())
       .then((data) => setMemes(data.data.memes));
   }, []);
 
-  // Add event listener to input fields
-  // Create a function to handle input changes and update the state accordingly
-  // Pass values to the ImageGenerator component as props
-
+  // Handle input changes and update the state accordingly
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setMeme((prevMeme) => ({
@@ -36,6 +35,17 @@ export default function App() {
       [name]: value,
     }));
   };
+
+  // Generate a random image from the memes array
+  function getRandomMeme() {
+    const randomMeme = memes[Math.floor(Math.random() * memes.length)];
+    setMeme((prevMeme) => {
+      return {
+        ...prevMeme,
+        imageUrl: randomMeme.url,
+      };
+    });
+  }
 
   return (
     <>
@@ -46,8 +56,9 @@ export default function App() {
           topText={meme.topText}
           bottomText={meme.bottomText}
           imageUrl={meme.imageUrl}
+          getRandomMeme={getRandomMeme}
         />
-        <pre>{JSON.stringify(meme, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(meme, null, 2)}</pre> */}
       </div>
     </>
   );
