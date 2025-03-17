@@ -15,14 +15,14 @@ export default function ImageGenerator({
   getRandomMeme,
 }: ImageGeneratorProps) {
   return (
-    <div className="flex flex-col justify-items-center px-6 mx-auto w-fit">
+    <div className="flex flex-col justify-items-center px-6 ">
       <button
-        className="py-2 mb-6 text-white bg-gradient-to-r from-purple-500 to-pink-400 rounded-lg"
+        className="py-2 mb-6 w-full sm:max-w-[600px] lg:max-w-[600px] mx-auto text-white bg-gradient-to-r from-purple-500 to-pink-400 rounded-lg px-4 flex items-center justify-center"
         onClick={getRandomMeme}
       >
         Get a new image
       </button>
-      <div className="relative flex flex-col justify-center items-center">
+      <div className="relative flex flex-col justify-center items-center max-w-full  object-contain">
         <img src={imageUrl} alt="image" className="rounded-lg" />
         <span className="absolute text-center my-[15px] px-[5px] font-anton text-3xl uppercase text-white tracking-[1px] [text-shadow:_2px_2px_0_#000,_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_0_2px_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_-2px_0_0_#000,_2px_2px_5px_#000] top-0">
           {topText}
