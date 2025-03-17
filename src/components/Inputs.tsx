@@ -9,11 +9,13 @@ interface Meme {
 interface InputsProps {
   meme: Meme;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  clearInput: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
 }
 
 export default function Inputs({
   meme,
   handleInputChange,
+  clearInput,
 }: InputsProps): React.JSX.Element {
   return (
     <main className="flex flex-col p-6 mx-auto">
@@ -26,6 +28,7 @@ export default function Inputs({
             className="w-full border border-gray-400 rounded-md p-2"
             placeholder="Enter top text"
             onChange={handleInputChange}
+            onFocus={clearInput}
             value={meme.topText}
           />
         </label>
@@ -38,6 +41,7 @@ export default function Inputs({
             className="w-full border border-gray-400 rounded-md p-2"
             placeholder="Enter bottom text"
             onChange={handleInputChange}
+            onFocus={clearInput}
             value={meme.bottomText}
           />
         </label>

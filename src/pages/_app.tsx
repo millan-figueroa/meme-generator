@@ -21,22 +21,33 @@ export default function App() {
 
   // Fetch memes images from API and save to state
   const [memes, setMemes] = useState<Meme[]>([]);
-  React.useEffect(() => {
+
+  useEffect(() => {
     fetch(`https://api.imgflip.com/get_memes`)
       .then((res) => res.json())
       .then((data) => setMemes(data.data.memes));
   }, []);
 
-  // Handle input changes and update the state accordingly
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  // Automatically poulate text when the user types in the input fields
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setMeme((prevMeme) => ({
       ...prevMeme,
       [name]: value,
     }));
-  };
+  }
 
-  // Generate a random image from the memes array
+  // Clear input field on focus
+  function clearInput(event: React.FocusEvent<HTMLInputElement>) {
+    const { name } = event.target;
+    setMeme((prevMeme) => ({
+      ...prevMeme,
+      [name]: "",
+    }));
+    // console.log("sanity check!");
+  }
+
+  // Generate a random image from the memes array, and update the state
   function getRandomMeme() {
     const randomMeme = memes[Math.floor(Math.random() * memes.length)];
     setMeme((prevMeme) => {
@@ -51,14 +62,17 @@ export default function App() {
     <>
       <div className="h-screen">
         <Header />
-        <Inputs meme={meme} handleInputChange={handleInputChange} />
+        <Inputs
+          meme={meme}
+          handleInputChange={handleInputChange}
+          clearInput={clearInput}
+        />
         <ImageGenerator
           topText={meme.topText}
           bottomText={meme.bottomText}
           imageUrl={meme.imageUrl}
           getRandomMeme={getRandomMeme}
         />
-        {/* <pre>{JSON.stringify(meme, null, 2)}</pre> */}
       </div>
     </>
   );
